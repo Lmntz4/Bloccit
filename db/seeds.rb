@@ -8,6 +8,8 @@ require 'faker'
     )
 end
 posts = Post.all
+#Post.create(title: "Jeff's first post", body: "Go Bulls!")
+
 
 # Create comments
 100.times do
@@ -15,6 +17,9 @@ posts = Post.all
     post: posts.sample,
     body: Faker::Lorem.paragraph
     )
+end
+1.times do
+  Comment.create!(post: "Jeff's first comment", body: "Go Warriors!")
 end
 
 puts "Seed finished"
