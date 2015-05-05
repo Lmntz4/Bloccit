@@ -34,6 +34,8 @@ gem 'spring',        group: :development
 
 gem 'bootstrap-sass'
 
+gem 'pry-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
