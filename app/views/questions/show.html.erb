@@ -1,5 +1,18 @@
 <h1><%= @question.title %></h1>
+<%= form_for @question do |f| %>
+    <div class = "form-group">
+       <%= f.label :resolved %>
+    <%= f.check_box( :resolved) %>
+</div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      </div>
+   
+      <% end %>
+
 
 <%= link_to "Edit", edit_question_path(@question), class: 'btn btn-success' %>
+<%= link_to "Delete", question_path(@question), class: 'btn btn-success', method: :delete, data: {confirm: 'Are you sure?' } %>
+
 
 <p><%= @question.body %></p>
