@@ -41,6 +41,8 @@ gem 'pry-rails'
 
 gem 'devise'
 
+gem 'pundit'
+
 gem 'figaro', '1.0'
 
 # Use ActiveModel has_secure_password
