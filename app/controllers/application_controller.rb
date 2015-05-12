@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   include Pundit
   protect_from_forgery with: :exception
+  
+  before_action :flash_action, only: [:index, :show, :new, :edit]
+  
+  def flash_action
+    flash[:notice] = "Are you sure about this?"
+  end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
