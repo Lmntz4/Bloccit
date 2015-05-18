@@ -1,7 +1,7 @@
 require 'faker'
 
 # Create Users
-5.times do
+0.times do
   user = User.new(
     name:     Faker::Name.name,
     email:    Faker::Internet.email,
@@ -21,7 +21,7 @@ users = User.all
  # The `save` method then saves this User to the database.
 
 # Create Topics
-15.times do
+200.times do
   Topic.create!(
     name:         Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
@@ -30,7 +30,7 @@ end
 topics = Topic.all
 
 # Create posts
-50.times do
+500.times do
   Post.create!(
     user:   users.sample,
     topic:  topics.sample,
@@ -48,36 +48,6 @@ posts = Post.all
     body: Faker::Lorem.paragraph
   )
 end
-
-# Create an admin user
-admin = User.new(
-  name:     'Admin User',
-  email:    'admin@example.com',
-  password: 'helloworld',
-  role:     'admin'
-)
-admin.skip_confirmation!
-admin.save!
-
-# Create a moderator
-moderator = User.new(
-  name:     'Moderator User',
-  email:    'moderator@example.com',
-  password: 'helloworld',
-  role:     'moderator'
-)
-moderator.skip_confirmation!
-moderator.save!
-
-# Create a member
-member = User.new(
-  name:     'Member User',
-  email:    'member@example.com',
-  password: 'helloworld'
-)
-member.skip_confirmation!
-member.save!
-
 
 puts "Seed finished"
 puts "#{User.count} users created"
