@@ -1,18 +1,18 @@
 require 'faker'
 
 # Create Users
-unless User.all.any?
-  10.times do
-    i += 1
-    user = User.new(
-      name:     "Agent 00#{i}" + Faker::Name.name,
-      email:    Faker::Internet.email,
-      password: Faker::Lorem.characters(10)
-    )
-    user.skip_confirmation!
-    user.save!
-  end
-
+10.times do |i|
+  i = 1,
+  i = i + 1
+  user = User.new(
+  name:     "Agent 00#{i} " + Faker::Name.name,
+  email:    Faker::Internet.email,
+  password: Faker::Lorem.characters(10)
+  )
+  user.skip_confirmation!
+  user.save!
+end
+users = User.all
 
   # Create an admin user
   admin = User.new(
@@ -42,8 +42,6 @@ unless User.all.any?
   )
   member.skip_confirmation!
   member.save!
-end
-users = User.all
 
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
@@ -54,22 +52,23 @@ users = User.all
  # The `save` method then saves this User to the database.
 
 # Create Topics
-200.times do
+200.times do |i|
   i += 1
   Topic.create!(
-    name:         "Topic ##{i}" + Faker::Lorem.sentence,
+    name:         "Topic ##{i} " + Faker::Lorem.sentence,
     description:  Faker::Lorem.paragraph
   )
 end
 topics = Topic.all
 
 # Create posts
-500.times do
+500.times do |i|
+  i = 1,
   i += 1
   Post.create!(
     user:   users.sample,
     topic:  topics.sample,
-    title:  "Post ##{i}" + Faker::Lorem.sentence,
+    title:  "Post ##{i} " + Faker::Lorem.sentence,
     body:   Faker::Lorem.paragraph
   )
 end
@@ -84,9 +83,8 @@ posts = Post.all
   )
 end
 
-
-
 puts "Seed finished"
 puts "#{User.count} users created"
+puts "#{Topic.count} topics created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
