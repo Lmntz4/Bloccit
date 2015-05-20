@@ -1,16 +1,16 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    @comment = current_user.comments.build(comment_params)
+    @comment = current_user.comments.new(comment_params)
     @comment.post = @post
-    authorize @comment
+    @new_comment = Comment.new
     
     if @comment.save
       flash[:notice] = "Comment was saved."
       redirect_to [@post.topic, @post]
     else
       flash[:error] = "There was an error saving the comment. Please try again."
-      render :create
+      redirect_to [@post.topic, @post]
     end
   end
   
