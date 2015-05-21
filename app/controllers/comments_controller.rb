@@ -17,7 +17,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = @topic.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @topic = Topic.find(@post.topic)
     @comment = @post.comments.find(params[:id])
 
     authorize @comment

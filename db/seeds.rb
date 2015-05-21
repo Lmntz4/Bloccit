@@ -12,6 +12,8 @@ require 'faker'
 end
 users = User.all
 
+puts users.sample.to_yaml
+
  # Note: by calling `User.new` instead of `create`,
  # we create an instance of User which isn't immediately saved to the database.
  
@@ -29,6 +31,8 @@ users = User.all
 end
 topics = Topic.all
 
+puts topics.sample.to_yaml
+
 # Create posts
 50.times do
   Post.create!(
@@ -40,6 +44,8 @@ topics = Topic.all
 end
 posts = Post.all
 
+puts posts.sample.to_yaml
+
 # Create comments
 100.times do
   Comment.create!(
@@ -48,6 +54,9 @@ posts = Post.all
     body: Faker::Lorem.paragraph
   )
 end
+comments = Comment.all
+
+puts comments.sample.to_yaml
 
 # Create an admin user
 admin = User.new(
