@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @new_comment = Comment.new
     
+    authorize Comment
+    
     if @comment.save
       flash[:notice] = "Comment was saved."
       redirect_to [@post.topic, @post]
@@ -20,6 +22,7 @@ class CommentsController < ApplicationController
     @comment = @post.comments.find(params[:id])
 
     authorize @comment
+    
     if @comment.destroy
       flash[:notice] = "Comment was removed."
       redirect_to [@topic, @post]
