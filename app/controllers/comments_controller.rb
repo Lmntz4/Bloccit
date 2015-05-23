@@ -5,20 +5,20 @@ class CommentsController < ApplicationController
     @comment.post = @post
     @new_comment = Comment.new
     
-    authorize Comment
+    authorize @comments
     
     if @comment.save
       flash[:notice] = "Comment was saved."
-      redirect_to [@post.topic, @post]
+      redirect_to @post
     else
       flash[:error] = "There was an error saving the comment. Please try again."
-      redirect_to [@post.topic, @post]
+      redirect_to @post
     end
   end
 
   def destroy
-    @topic = Topic.find(params[:topic_id])
-    @post = @topic.posts.find(params[:post_id])
+    @post = Post.find(params[:post_id])
+    @topic = Topic.find(@post.topic)
     @comment = @post.comments.find(params[:id])
 
     authorize @comment
