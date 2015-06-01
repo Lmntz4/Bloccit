@@ -67,6 +67,10 @@ end
 
 gem 'newrelic_rpm'
 
+group :development, :production do
+  gem 'puma'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
