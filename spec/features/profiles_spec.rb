@@ -1,7 +1,4 @@
-require 'rails_helper'
-
-include Warden::Test::Helpers
-Warden.test_mode!
+require 'support/feature_helper'
 
 describe "Visiting profiles" do
 
