@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   def show
     @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
-    @summary = @post.summary
   end
 
   def new
