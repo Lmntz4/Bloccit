@@ -10,6 +10,8 @@ group :production do
  
  group :development do
    gem 'sqlite3'
+   gem 'binding_of_caller'
+   gem 'better_errors'
  end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -44,6 +46,26 @@ gem 'devise'
 gem 'pundit'
 
 gem 'figaro', '1.0'
+
+gem 'redcarpet'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
+gem 'fog'
+
+gem 'will_paginate', '~> 3.0.6'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
+
+group :test do
+  gem 'capybara'
+end
+
+gem 'factory_girl_rails', '~> 4.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
