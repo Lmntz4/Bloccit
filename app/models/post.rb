@@ -42,7 +42,7 @@ class Post < ActiveRecord::Base
   
   def populate_summary
     if summary.nil? and @body.present?
-      summary = @body.slice(0,50)
+      summary = Summary.create(text: @body.slice(0,50))
     end
   end
 
