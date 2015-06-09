@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20150527025330) do
     t.datetime "updated_at"
   end
 
+  create_table "summaries", force: true do |t|
+    t.integer  "post_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "summaries", ["post_id"], name: "index_summaries_on_post_id"
+
   create_table "topics", force: true do |t|
     t.string   "name"
     t.boolean  "public",      default: true

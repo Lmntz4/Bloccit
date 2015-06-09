@@ -1,0 +1,5 @@
+  <h4>Add a summary</h4>
+  <%= form_for summary, url: post_summary_path(post, summary), method: :post do |sf| %>
+    <%= sf.text_field :text %>
+    <%= sf.submit %>
+  <% end %>
