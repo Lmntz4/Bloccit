@@ -2,7 +2,7 @@ class SummariesController < ApplicationController
     
   def show
     @post = Post.find params[:post_id]
-    @summary = Summary.find params[:id]
+    @summary = Summary.find params[:format]
     authorize @summary
   end
     
@@ -12,7 +12,7 @@ class SummariesController < ApplicationController
     authorize @summary
 
     if @summary.save
-      redirect_to @summary
+      redirect_to [@post, @summary]
     else
       redirect_to :back
       flash[:error] = "Something went wrong summerizing"
